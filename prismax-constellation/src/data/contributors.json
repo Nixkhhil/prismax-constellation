@@ -2,7 +2,7 @@
   {
     "id": "bayley",
     "name": "Bayley Wang",
-    "role": "prismax_vanguard",
+    "role": "co-founder and ceo",
     "image": "/assets/members/bayley.jpg",
     "twitter": "@castorhat",
     "twitterUrl": "https://x.com/castorhat",
@@ -18,7 +18,7 @@
   {
     "id": "chyna",
     "name": "Chyna Qu",
-    "role": "prismax_vanguard",
+    "role": "co-founder",
     "image": "/assets/members/chyna.jpg",
     "twitter": "@chynaqqq",
     "twitterUrl": "https://x.com/chynaqqq",
@@ -34,7 +34,7 @@
   {
     "id": "shaye",
     "name": "Shaye Backus",
-    "role": "groundbreaker",
+    "role": "Head of Growth",
     "image": "/assets/members/shaye.jpg",
     "twitter": null,
     "twitterUrl": null,
@@ -50,7 +50,7 @@
   {
     "id": "vivian",
     "name": "Vivian",
-    "role": "navigational",
+    "role": "marketing ops lead",
     "image": "/assets/members/vivian.jpg",
     "twitter": "@vivianrobotics",
     "twitterUrl": "https://x.com/vivianrobotics",
