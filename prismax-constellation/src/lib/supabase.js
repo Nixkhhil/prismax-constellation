@@ -27,7 +27,7 @@ console.log('FILE NAME:', file?.name)
 console.log('CONTRIBUTOR ID:', contributorId)
   const ext  = file.name.split('.').pop().toLowerCase()
   const path = `${contributorId}.${ext}`
-
+  console.log('PATH:', path)
   const { error } = await supabase.storage
     .from('avatars')
     .upload(path, file, { upsert: true, contentType: file.type })
