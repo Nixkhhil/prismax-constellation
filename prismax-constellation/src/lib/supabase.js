@@ -22,7 +22,9 @@ export async function uploadAvatar(file, contributorId) {
     // Offline fallback: return a blob URL so the UI still works
     return URL.createObjectURL(file)
   }
-
+console.log('FILE:', file)
+console.log('FILE NAME:', file?.name)
+console.log('CONTRIBUTOR ID:', contributorId)
   const ext  = file.name.split('.').pop().toLowerCase()
   const path = `${contributorId}.${ext}`
 
