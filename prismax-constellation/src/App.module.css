@@ -1,0 +1,168 @@
+/* ─── Root ───────────────────────────────────────────────────── */
+.root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ─── Ambient glow ───────────────────────────────────────────── */
+.bgGlow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 18%, rgba(92,64,51,0.2)  0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 65%, rgba(43,29,23,0.28) 0%, transparent 80%);
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.header {
+  position: relative;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px 0;
+}
+
+.headerLogo {
+  height: 28px;
+  width: auto;
+  filter: invert(1) brightness(0.65) sepia(0.15);
+  opacity: 0.85;
+}
+
+/* ─── Main ───────────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 56px 0 20px;
+  animation: fadeDown 0.7s ease both;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--bronze);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  animation: fadeDown 0.7s 0.1s ease both;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+  animation: fadeDown 0.7s 0.15s ease both;
+}
+
+.headline em {
+  font-style: italic;
+  color: var(--sand);
+}
+
+.subline {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  animation: fadeDown 0.7s 0.22s ease both;
+}
+
+.breakDesktop { display: none; }
+@media (min-width: 640px) { .breakDesktop { display: inline; } }
+
+/* ─── Constellation section ──────────────────────────────────── */
+.constellationSection {
+  animation: fadeIn 0.8s 0.3s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hint {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  animation: pulse 3s 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+}
+
+/* ─── Loading ────────────────────────────────────────────────── */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 80px 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+}
+
+.loadingOrb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,176,138,0.25);
+  border-top-color: var(--sand);
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Search + filter section ────────────────────────────────── */
+.discoverSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 0 24px;
+}
+
+/* ─── Grid section ───────────────────────────────────────────── */
+.gridSection {
+  padding-bottom: 40px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero { padding: 40px 0 16px; }
+}

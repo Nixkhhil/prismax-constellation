@@ -1,0 +1,12 @@
+.outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.canvas {
+  position: relative;
+  flex-shrink: 0;
+}

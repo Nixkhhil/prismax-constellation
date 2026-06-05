@@ -1,0 +1,88 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.inputRow {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: color var(--transition-base);
+}
+
+.input {
+  width: 100%;
+  background: rgba(43, 29, 23, 0.5);
+  border: 1px solid rgba(200, 176, 138, 0.12);
+  border-radius: var(--radius-full);
+  padding: 11px 16px 11px 40px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  outline: none;
+  transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus {
+  border-color: rgba(200, 176, 138, 0.35);
+  background: rgba(43, 29, 23, 0.7);
+  box-shadow: 0 0 0 3px rgba(200, 176, 138, 0.06);
+}
+
+.input:focus ~ .icon,
+.inputRow:focus-within .icon {
+  color: var(--sand);
+}
+
+/* Hide browser's native clear button */
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration { display: none; }
+
+.clearBtn {
+  position: absolute;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.clearBtn:hover {
+  color: var(--sand);
+  background: rgba(200, 176, 138, 0.08);
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-align: center;
+}

@@ -1,0 +1,166 @@
+.star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  will-change: transform;
+  transition: z-index 0s;
+}
+
+.star:hover, .star:focus-visible { z-index: 20; outline: none; }
+
+/* ── Image ─────────────────────────────────────────────── */
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 1.5px solid var(--border-color, rgba(200,176,138,0.3));
+  transition: border-color 0.3s, box-shadow 0.35s, transform 0.3s;
+  position: relative;
+  z-index: 2;
+  filter: brightness(calc(0.6 + var(--brightness, 0.7) * 0.45));
+}
+
+.hovered .image {
+  border-color: var(--border-color, rgba(200,176,138,0.9));
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.06),
+    0 0 20px var(--glow-color, rgba(200,176,138,0.4)),
+    0 0 44px var(--glow-color, rgba(200,176,138,0.2));
+  transform: scale(1.09);
+  filter: brightness(1);
+}
+
+/* ── Glow rings ─────────────────────────────────────────── */
+.ring1, .ring2 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--glow-color, rgba(200,176,138,0.15));
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.ring2 { border-color: var(--glow-color, rgba(200,176,138,0.07)); }
+.hovered .ring1 { transform: scale(1.38); opacity: 0.55; }
+.hovered .ring2 { transform: scale(1.7);  opacity: 0.3;  }
+
+/* ── Founder golden ring ───────────────────────────────── */
+.founderRing {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 215, 0, 0.45);
+  pointer-events: none;
+  z-index: 3;
+  animation: founderPulse 2.8s ease-in-out infinite;
+}
+@keyframes founderPulse {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 8px rgba(255,215,0,0.3);  }
+  50%       { opacity: 1;   box-shadow: 0 0 18px rgba(255,215,0,0.6); }
+}
+
+/* ── Badges ────────────────────────────────────────────── */
+.founderBadge, .vanguardBadge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 0.6rem;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  line-height: 1;
+}
+.founderBadge {
+  background: radial-gradient(circle, #FFD700, #B8860B);
+  color: #0F0C0A;
+  box-shadow: 0 0 8px rgba(255,215,0,0.7);
+}
+.vanguardBadge {
+  background: radial-gradient(circle, #FFD700 0%, #FF8C00 100%);
+  color: #0F0C0A;
+  box-shadow: 0 0 10px rgba(255,200,0,0.8);
+  animation: vanguardSpin 6s linear infinite;
+}
+@keyframes vanguardSpin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Founder visual boost ──────────────────────────────── */
+.founder .image {
+  box-shadow: 0 0 18px rgba(255,215,0,0.25);
+}
+.founder.hovered .image {
+  box-shadow:
+    0 0 0 2px rgba(255,215,0,0.1),
+    0 0 24px rgba(255,215,0,0.55),
+    0 0 56px rgba(255,215,0,0.2);
+}
+
+/* ── Vanguard extra glow ───────────────────────────────── */
+.vanguard .image {
+  box-shadow: 0 0 14px rgba(255,215,0,0.2);
+}
+
+/* ── New star arrival animation ────────────────────────── */
+.arriving {
+  animation: starArrive 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes starArrive {
+  0%   { opacity: 0; transform: translate(calc(-50% + var(--x,0px)), calc(-50% + var(--y,0px))) scale(0.2); filter: brightness(3); }
+  60%  { opacity: 1; filter: brightness(1.8); }
+  100% { opacity: 1; filter: brightness(1);   }
+}
+
+/* ── Tooltip label ─────────────────────────────────────── */
+.label {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  white-space: nowrap;
+  background: rgba(15, 12, 10, 0.9);
+  border: 1px solid rgba(200, 176, 138, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  backdrop-filter: blur(8px);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 30;
+}
+.label em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 300;
+  color: var(--sand);
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+.hovered .label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

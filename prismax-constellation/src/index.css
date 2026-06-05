@@ -1,0 +1,64 @@
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg:          #0F0C0A;
+  --deep-brown:  #2B1D17;
+  --coffee:      #5C4033;
+  --bronze:      #8B6A4E;
+  --sand:        #C8B08A;
+  --cream:       #F5EBDD;
+  --text:        #FFF8F0;
+  --text-dim:    rgba(255, 248, 240, 0.55);
+  --text-muted:  rgba(255, 248, 240, 0.28);
+
+  --glow-color:  rgba(200, 176, 138, 0.35);
+  --glow-strong: rgba(200, 176, 138, 0.7);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'Syne', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  --radius-sm:  6px;
+  --radius-md:  14px;
+  --radius-lg:  24px;
+  --radius-full: 9999px;
+
+  --transition-fast:   150ms ease;
+  --transition-base:   280ms ease;
+  --transition-slow:   500ms ease;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+
+::selection {
+  background: rgba(200, 176, 138, 0.2);
+  color: var(--cream);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--coffee); border-radius: 2px; }
